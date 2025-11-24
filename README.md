@@ -196,7 +196,8 @@ Erro de CORS:
 
 Se o frontend e backend estiverem em domínios diferentes, verifique a configuração `app.use(cors())` no `server.js`. Se estiverem no mesmo servidor (como configurado neste guia), isso não deve ocorrer.
 
-## 📚 Funcionalidades Implementadas    
+## 📚 Funcionalidades Implementadas
+
 Chat Inteligente: Respostas contextualizadas sobre cibersegurança.
 
 Markdown: Suporte para formatação rica (negrito, listas, código) nas respostas.
@@ -211,4 +212,4 @@ Excluir: Remove a conversa do banco de dados e da interface.
 
 Títulos Automáticos: A IA gera um nome para a conversa baseada na primeira mensagem.
 
-Design Responsivo: Funciona em Desktop e Mobile (com sidebar retrátil). 
+Design Responsivo: Funciona em Desktop e Mobile (com sidebar retrátil).
