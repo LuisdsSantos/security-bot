@@ -13,23 +13,20 @@ async function loadProfile() {
         const user = await response.json();
 
         if (response.ok) {
-            // Dados básicos
+   
             document.getElementById('userName').textContent = user.name;
-            document.getElementById('userEmail').textContent = user.email; // NOVO
+            document.getElementById('userEmail').textContent = user.email;
             document.getElementById('userLevel').textContent = user.level;
-            document.getElementById('userLevelBadge').textContent = user.level; // Badge no card
+            document.getElementById('userLevelBadge').textContent = user.level; 
             document.getElementById('points').textContent = user.points;
-            
-            // Lógica de Progresso (Ex: Cada nível precisa de 1000 pontos)
-            // Se o usuário tem 1500 pontos, ele tem 50% do caminho para o próximo (considerando base 1000)
-            // Vamos simplificar: Progresso = (Pontos % 1000) / 10
+ 
             const currentLevelPoints = user.points % 1000;
             const progress = (currentLevelPoints / 1000) * 100;
             
             document.getElementById('bar').style.width = `${progress}%`;
             document.getElementById('progressPercent').textContent = `${Math.floor(progress)}%`;
             
-            // Lógica de Badges (Opcional - Simulação)
+            
             unlockBadges(user.points);
         }
     } catch (error) {
@@ -37,10 +34,10 @@ async function loadProfile() {
     }
 }
 
-// Função visual para "desbloquear" emblemas baseado em pontos
+
 function unlockBadges(points) {
     const badgesContainer = document.getElementById('badges');
-    // Limpa os badges estáticos do HTML
+  
     badgesContainer.innerHTML = '';
 
     const badgeList = [
@@ -73,15 +70,11 @@ document.getElementById('btnLogout').addEventListener('click', () => {
     }
 });
 
-// ... (código anterior de carregamento do perfil) ...
 
-/* --- LÓGICA DOS MODAIS --- */
-
-// Elementos
 const modalEdit = document.getElementById('modalEdit');
 const modalPassword = document.getElementById('modalPassword');
 
-// 1. ABRIR MODAL DE EDITAR DADOS
+
 document.getElementById('btnEditData').addEventListener('click', () => {
     // Preenche os campos com os dados atuais da tela
     document.getElementById('editName').value = document.getElementById('userName').textContent;

@@ -1,4 +1,4 @@
-@import url('./styles.css');
+@import url("./styles.css");
 
 /* --- Layout Geral --- */
 body {
@@ -33,11 +33,13 @@ body {
   font-size: 1.1rem;
 }
 
-.spacer { width: 80px; } /* Equilibra o header */
+.spacer {
+  width: 80px;
+}
 
 .profile-container {
   padding: 16px;
-  max-width: 600px; /* Limita largura em telas grandes */
+  max-width: 600px;
   margin: 0 auto;
   width: 100%;
   display: flex;
@@ -45,13 +47,12 @@ body {
   gap: 24px;
 }
 
-/* --- 1. Identity Card (Estilo da Imagem) --- */
 .identity-card {
   background: var(--card);
   border-radius: 24px;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   position: relative;
 }
 
@@ -61,21 +62,20 @@ body {
   position: relative;
 }
 
-/* O Avatar sobrepondo a capa */
 .profile-avatar {
   width: 100px;
   height: 100px;
   background: var(--card-light);
   border-radius: 50%;
-  border: 4px solid var(--card); /* Cria a borda que separa da capa */
-  margin: -50px auto 12px auto; /* Sobe 50px para cima da capa */
+  border: 4px solid var(--card);
+  margin: -50px auto 12px auto;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
   color: var(--accent);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .profile-details {
@@ -105,7 +105,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* --- Lista de Configurações (Estilo Mobile Clean) --- */
 .settings-list {
   text-align: left;
   padding: 0 16px 24px 16px;
@@ -115,7 +114,7 @@ body {
   width: 100%;
   background: none;
   border: none;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 16px 0;
   display: flex;
   align-items: center;
@@ -125,13 +124,13 @@ body {
 }
 
 .list-item:hover {
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .item-icon {
   width: 36px;
   height: 36px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -151,13 +150,15 @@ body {
   font-size: 0.8rem;
 }
 
-.list-item.logout .item-text { color: #ff6b6b; }
-.list-item.logout .item-icon { color: #ff6b6b; background: rgba(255, 107, 107, 0.1); }
+.list-item.logout .item-text {
+  color: #ff6b6b;
+}
+.list-item.logout .item-icon {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+}
 
-
-/* --- 2. Gamification Dashboard --- */
 .gamification-dashboard {
-  /* background: var(--card); */ /* Opcional: Fundo transparente ou card */
   border-radius: 24px;
 }
 
@@ -202,10 +203,12 @@ body {
   opacity: 0.5;
 }
 
-.accent { color: #ffd700; }     /* Ouro para pontos */
-.secondary { color: #5271ff; } /* Azul para nível */
-
-/* Barra de Progresso */
+.accent {
+  color: #ffd700;
+}
+.secondary {
+  color: #5271ff;
+}
 .level-progress-container {
   background: var(--card);
   padding: 20px;
@@ -235,7 +238,6 @@ body {
   transition: width 0.5s ease;
 }
 
-/* Badges Grid */
 .badges-container h4 {
   margin-bottom: 16px;
   padding-left: 8px;
@@ -256,26 +258,23 @@ body {
   justify-content: center;
   font-size: 1.5rem;
   color: var(--text);
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .badge.locked {
   opacity: 0.3;
   color: var(--muted);
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
-/* --- ESTILOS DOS MODAIS --- */
-
-/* Fundo Escuro (Overlay) */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
-  backdrop-filter: blur(4px); /* Efeito de desfoque no fundo */
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -284,14 +283,12 @@ body {
   transition: opacity 0.3s ease;
 }
 
-/* Classe para esconder */
 .modal-overlay.hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
 }
 
-/* A caixa do modal */
 .modal-content {
   background: var(--card);
   width: 90%;
@@ -304,7 +301,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Animação de entrada (slide up) */
 .modal-overlay.hidden .modal-content {
   transform: translateY(20px) scale(0.95);
 }
@@ -335,7 +331,6 @@ body {
   color: var(--text);
 }
 
-/* Estilos de Formulário dentro do Modal */
 .modal-content form label {
   display: block;
   margin-bottom: 16px;

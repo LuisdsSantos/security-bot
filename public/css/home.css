@@ -11,17 +11,17 @@
 
 .main-content-wrapper {
   display: flex;
-  flex: 1; /* Ocupa todo o espaço vertical restante */
-  position: relative; /* Importante para o composer */
-  overflow: hidden; /* Evita barras de rolagem duplas */
+  flex: 1;
+  position: relative;
+  overflow: hidden;
 }
 
 /* --- 2. ÁREA PRINCIPAL E CHAT --- */
 .home-main {
-  flex: 1; /* Ocupa o espaço horizontal restante */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  /* min-height: 100vh; */
+
   position: relative;
 }
 
@@ -30,7 +30,7 @@
   background: var(--bg);
   display: flex;
   align-items: center;
-  flex-shrink: 0; /* Impede que o header encolha */
+  flex-shrink: 0;
 }
 
 .home-container {
@@ -38,7 +38,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-bottom: 100px; /* Reserva espaço para o Composer fixo */
+  padding-bottom: 100px;
 
   min-height: 0;
 }
@@ -52,49 +52,31 @@
   flex: 1;
   margin-bottom: 0;
   width: 100%;
-  max-width: 800px; 
-  margin: 0 auto;  
+  max-width: 800px;
+  margin: 0 auto;
   box-sizing: border-box;
   overflow-y: auto;
 }
 
-/* .msg {
-  max-width: 80%;
-  padding: 12px 14px;
-  border-radius: 14px;
-  line-height: 1.4;
-}
-
-.msg.user {
-  background: #173055;
-  justify-self: end; 
-}
-
-.msg.bot {
-  background: #0f243f;
-  justify-self: start; 
-} */
-
 .msg {
-  max-width: 80%; /* A largura máxima do bloco todo */
+  max-width: 80%;
   line-height: 1.4;
-  display: flex; /* Usa flexbox... */
-  flex-direction: column; /* ...para empilhar os filhos verticalmente */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Alinhamento para o USUÁRIO */
 .msg.user {
-  justify-self: end; /* Alinha o <li> à direita do grid */
-  align-items: flex-end; /* Alinha o conteúdo (bolha, meta) à direita */
+  justify-self: end;
+  align-items: flex-end;
 }
 
 /* Alinhamento para o BOT */
 .msg.bot {
-  justify-self: start; /* Alinha o <li> à esquerda do grid */
-  align-items: flex-start; /* Alinha o conteúdo (bolha, feedback, meta) à esquerda */
+  justify-self: start;
+  align-items: flex-start;
 }
 
-/* A "BOLHA" DE TEXTO (o primeiro <div> dentro do <li>) */
 li.msg > div:first-child {
   padding: 12px 14px;
   border-radius: 14px;
@@ -110,9 +92,7 @@ li.msg > div:first-child {
   background: #0f243f;
 }
 
-/* --- 3. COMPOSER (Formulário de Input) --- */
 .composer {
-  /* Layout interno (mantido) */
   height: 56px;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -124,60 +104,47 @@ li.msg > div:first-child {
   z-index: 100;
   transition: all var(--transition);
   gap: 8px;
-
-  /* --- LÓGICA DE POSIÇÃO CORRIGIDA --- */
-  
-  /* 1. Largura Padrão */
   width: 100%;
   max-width: 300px;
-  
-  /* 2. Posição Padrão (Fixo embaixo) */
   position: fixed;
   bottom: 20px;
 }
 
-/* COMPORTAMENTO: TELA VAZIA (Move para o meio vertical) */
 .home-container:has(.messages:empty) .composer {
   position: absolute;
   top: 50%;
-  bottom: auto; /* Reseta o 'bottom: 20px' */
-  transform: translate(-50%, -50%); /* Centraliza X e Y */
+  bottom: auto;
+  transform: translate(-50%, -50%);
 }
-
 /* COMPORTAMENTO: COM MENSAGENS (Mantém embaixo) */
 .home-container:has(.messages:not(:empty)) .composer {
   position: fixed;
-  top: auto; /* Garante que 'top: 50%' não vaze */
+  top: auto;
   bottom: 20px;
-  transform: translateX(-50%); /* Centraliza só X */
+  transform: translateX(-50%);
 }
 
-/* AJUSTE PARA SIDEBAR EXPANDIDA (Desktop) */
 .sidebar:not(.collapsed) ~ .home-main .composer {
-  /* left: calc(210px + (100% - 210px) / 2);  */
   left: 50%;
   transform: translateX(-50%);
-  margin-left: 45px; 
+  margin-left: 45px;
   width: 100%;
   max-width: 800px;
 }
+
 .sidebar:not(.collapsed) ~ .home-main .messages {
-  /* left: calc(210px + (100% - 210px) / 2);  */
   margin-left: auto;
   margin-right: auto;
-} 
+}
 
-/* AJUSTE PARA SIDEBAR RECOLHIDA (Desktop) */
 .sidebar.collapsed ~ .home-main .composer {
-  /* left: calc(70px + (100% - 70px) / 2); */
   left: 50%;
   transform: translateX(-50%);
-  margin-left: 45px; /* Metade de 90px */
+  margin-left: 45px;
   width: 100%;
   max-width: 800px;
 }
 .sidebar.collapsed ~ .home-main .messages {
-  /* left: calc(70px + (100% - 70px) / 2); */
   margin-left: auto;
   margin-right: auto;
 }
@@ -191,7 +158,7 @@ li.msg > div:first-child {
   width: 100%;
   font-size: 1rem;
   line-height: 1;
-  padding: 12px 0; /* Espaçamento vertical interno */
+  padding: 12px 0;
 }
 #inputMsg::placeholder {
   color: var(--muted);
@@ -205,11 +172,8 @@ li.msg > div:first-child {
   border-radius: 36px;
   align-items: center;
   justify-content: center;
-  
-  
-  /*color: var(--primary);*/ /* Cor de destaque para o ícone */
   font-size: 1.1rem;
-  padding: 12px 16px; /* Área de clique confortável */
+  padding: 12px 16px;
   cursor: pointer;
   transition: color var(--transition), background var(--transition);
   margin-left: 8px;
@@ -217,24 +181,20 @@ li.msg > div:first-child {
 }
 
 #btnSend:not(:disabled):hover {
-  background: var(--accent); /* Muda a cor no hover */
+  background: var(--accent);
   transition: background var(--transition);
 }
 
-
 .home-container:has(.messages:empty) .composer {
-  /* Adiciona um empurrão para baixo (só no desktop) */
   margin-top: 40px;
 }
 
-/* --- 4. SIDEBAR: ESTRUTURA PRINCIPAL --- */
 .sidebar {
   width: 210px;
   background: var(--bg);
   color: var(--text);
   display: flex;
   flex-direction: column;
-  /* border-right: 1.5px solid #1b2639; */
   transition: width var(--transition);
   overflow: hidden;
   flex-shrink: 0;
@@ -242,19 +202,17 @@ li.msg > div:first-child {
 
 .sidebar-header {
   padding: 8px;
-  /* border-bottom: 1px solid #273453; */
   display: flex;
   transition: padding var(--transition);
-  
 }
 
 .sidebar-action-main {
-  padding: 0 16px 16px 16px; /* Ajuste o padding como desejar */
+  padding: 0 16px 16px 16px;
   transition: padding var(--transition);
 }
 
 .sidebar-history {
-  flex: 1; /* Ocupa todo o espaço vertical restante e permite rolagem */
+  flex: 1;
   overflow-y: auto;
   padding: 10px 0;
   transition: padding var(--transition);
@@ -273,27 +231,16 @@ li.msg > div:first-child {
   background: none;
   border: none;
   color: var(--text);
-  /* margin-bottom: 12px; */
   cursor: pointer;
   transition: var(--transition);
 }
-/* 
-#btnToggleSidebar {
-  margin-top: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 8px; Espaçamento entre ícone e texto
-  transition: gap var(--transition);
-  overflow: hidden;
-} */
 
 #btnNewChat {
   margin-top: 0;
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 8px; /* Espaçamento entre ícone e texto */
+  gap: 8px;
   transition: gap var(--transition);
   overflow: hidden;
 }
@@ -328,14 +275,9 @@ li.msg > div:first-child {
 }
 
 .btn-text {
-  /* Garante que o texto não quebre a linha durante a animação */
   white-space: nowrap;
-
-  /* Define o estado inicial */
   opacity: 1;
-  max-width: 150px; /* Um valor base para a animação */
-
-  /* A transição que você pediu, usando sua variável */
+  max-width: 150px;
   transition: opacity var(--transition), max-width var(--transition);
 }
 
@@ -343,37 +285,27 @@ li.msg > div:first-child {
 .sidebar-footer .btn i,
 .chat-header .toggle-sidebar i,
 .sidebar-chat-item i {
-  /* Define o tamanho do ícone */
   font-size: 1.1rem;
-
-  /* Define uma largura fixa (baseada no font-size) */
   width: 1.25em;
-
-  /* Garante que ícones mais finos fiquem no centro do seu espaço */
   text-align: center;
   flex-shrink: 0;
 }
 
 /* --- 6. SIDEBAR: LÓGICA DE COLAPSO (REGRAS .collapsed) --- */
 
-/* 6.1. Define a nova largura da sidebar colapsada */
 .sidebar.collapsed {
-  width: 90px; /* Reduz a largura */
+  width: 90px;
   background: var(--bg);
 }
 
-/* --- CORREÇÃO DE ALINHAMENTO DO HEADER --- */
-
-/* Garante que o botão de toggle perca paddings e centralize */
 .sidebar.collapsed .toggle-sidebar {
   padding-left: 0 !important;
   padding-right: 0 !important;
-  width: 100% !important; /* Ocupa toda a largura da sidebar (70px) */
+  width: 100% !important;
   display: flex !important;
-  justify-content: center !important; /* Centraliza o ícone horizontalmente */
+  justify-content: center !important;
 }
 
-/* Removemos padding do header container também */
 .sidebar.collapsed .sidebar-header {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -381,57 +313,41 @@ li.msg > div:first-child {
   justify-content: center;
 }
 
-/* 6.2. Lógica de centralização (animando o padding) */
 .sidebar.collapsed .sidebar-header,
 .sidebar.collapsed .sidebar-action-main,
 .sidebar.collapsed .sidebar-footer {
-  /* Remove o padding de cima/baixo que não queremos animar */
   padding-top: 16px;
   padding-bottom: 16px;
-
   padding-left: 0 !important;
   padding-right: 0 !important;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Ajuste fino para o .sidebar-action-main que tinha padding diferente */
 .sidebar.collapsed .sidebar-action-main {
   padding-left: 0 !important;
   padding-right: 0 !important;
-  
-  /* Garante que o conteúdo fique no meio */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* 6.3. Lógica para esconder texto (animando opacidade e largura) */
 .sidebar.collapsed .sidebar-title,
 .sidebar.collapsed .btn-text {
   opacity: 0;
   max-width: 0px;
 }
 
-/* 6.4. Lógica para remover espaçamento (animando gap) */
 .sidebar.collapsed .sidebar-footer button {
-  gap: 0; /* Remove o espaço desnecessário */
+  gap: 0;
 }
 
 .sidebar.collapsed #btnNewChat {
-  /* Zera as laterais */
   padding-left: 0 !important;
   padding-right: 0 !important;
-  
-  /* O botão ocupa toda a largura (ex: 90px) */
   width: 100% !important;
-  
-  /* Centraliza o ícone no meio do botão */
   justify-content: center !important;
-  
-  /* Remove o espaço entre o ícone e o texto invisível */
   gap: 0 !important;
 }
 
@@ -468,30 +384,21 @@ li.msg > div:first-child {
 
 /* --- 8. RESPONSIVO (Mobile) --- */
 @media (max-width: 900px) {
-  /* Sidebar - Fica oculta e é revelada com a classe .expanded */
- /* --- A. SIDEBAR (Gaveta lateral) --- */
   .sidebar {
     position: absolute;
     width: 280px;
-    left: -280px; /* Escondida por padrão */
+    left: -280px;
     z-index: 1000;
     height: 100%;
     transition: left var(--transition);
-    background: var(--bg); /* Garante fundo sólido */
-    
-    /* Garante que a borda ou sombra apareça se desejar */
-    box-shadow: 2px 0 10px rgba(0,0,0,0.5); 
+    background: var(--bg);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
   }
 
-  /* Quando ativa, desliza para a tela */
   .sidebar.expanded {
     left: 0;
   }
 
-  /* --- B. FORÇAR EXIBIÇÃO DE TEXTO E ÍCONES (Correção do Bug) --- */
-  /* O uso de !important aqui é necessário para sobrescrever as regras .collapsed do desktop */
-
-  /* 1. Restaura opacidade e largura dos textos */
   .sidebar.expanded .btn-text,
   .sidebar .btn-text {
     opacity: 1 !important;
@@ -503,8 +410,6 @@ li.msg > div:first-child {
     opacity: 1 !important;
     max-width: 100% !important;
   }
-
-  /* 2. Restaura espaçamentos (padding) e gaps originais */
   .sidebar.expanded .sidebar-header,
   .sidebar.expanded .sidebar-action-main,
   .sidebar.expanded .sidebar-footer {
@@ -516,35 +421,25 @@ li.msg > div:first-child {
     gap: 8px !important;
   }
 
-  /* 3. Força o Histórico a aparecer corretamente */
   .sidebar.expanded .sidebar-chat-item {
     display: flex !important;
     padding: 10px 16px !important;
     gap: 8px !important;
   }
 
-  /* --- C. COMPOSER (Barra de Digitação) --- */
-  /* Reseta totalmente a posição para centralizar na tela do celular */
-  
   .composer {
     position: fixed !important;
     top: auto !important;
     bottom: 20px !important;
-    
-    /* Centralização Absoluta */
     left: 50% !important;
     transform: translateX(-50%) !important;
-    
     width: 90% !important;
     max-width: none !important;
-    
-    /* Reseta margens laterais do desktop */
     margin-left: 0 !important;
     margin-right: 0 !important;
     right: auto !important;
   }
 
-  /* Sobrescreve as regras específicas de .sidebar ~ .composer */
   .sidebar:not(.collapsed) ~ .home-main .composer,
   .sidebar.collapsed ~ .home-main .composer,
   .sidebar ~ .home-main .home-container:has(.messages:not(:empty)) .composer {
@@ -555,120 +450,94 @@ li.msg > div:first-child {
     right: auto !important;
   }
 
-  /* --- D. LISTA DE MENSAGENS --- */
-  /* Remove o deslocamento (transform) usado no desktop */
-  
   .sidebar:not(.collapsed) ~ .home-main .messages,
   .sidebar.collapsed ~ .home-main .messages {
     transform: none !important;
     margin: 0 auto !important;
     width: 100% !important;
-    padding: 16px; /* Garante respiro nas laterais */
+    padding: 16px;
   }
 }
 
-/* --- 9. AJUSTES DE CONTEÚDO (Markdown) --- */
-
-/* Corrige o alinhamento de listas (ul/ol) que vêm do Markdown 
-  dentro dos balões de mensagem.
-*/
 li.msg > div:first-child ul,
 li.msg > div:first-child ol {
-  /* Restaura o padding esquerdo que o 'styles.css' (reset) removeu. */
   padding-left: 20px;
-
-  /* Garante que os marcadores fiquem DENTRO do balão. */
   list-style-position: inside;
-
-  /* Adiciona um pouco de ar (espaçamento) antes e depois das listas */
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* Opcional: Adiciona um pequeno espaço entre os itens da lista */
 li.msg > div:first-child li {
-  margin-bottom: 4px; 
+  margin-bottom: 4px;
 }
 
 /* --- 10. HISTÓRICO DE CHAT (SIDEBAR) --- */
-    
+
 .sidebar-chat-item {
-  /* Garante que o container seja flexível */
-  display: flex !important; 
-  justify-content: space-between; /* Texto na esquerda, Lixeira na direita */
+  display: flex !important;
+  justify-content: space-between;
   align-items: center;
   padding: 10px 16px !important;
-  padding-right: 8px !important; /* Espaço para o botão de lixeira */
+  padding-right: 8px !important;
   cursor: pointer;
   transition: background var(--transition);
 }
 
 .sidebar-chat-item:hover {
-  background: var(--card); /* Ou a cor de hover do seu tema */
-  border-radius: 8px; /* Se os seus botões forem arredondados */
-  /* Se usar border-radius, adicione margin: 0 8px; e ajuste o padding para padding: 10px 8px; */
+  background: var(--card);
+  border-radius: 8px;
 }
 
-/* Área do texto/ícone do chat */
-.chat-item-content {  
-display: flex;
+.chat-item-content {
+  display: flex;
   align-items: center;
   gap: 8px;
-  flex: 1;      /* Ocupa o espaço disponível */
-  min-width: 0; /* TRUQUE CRUCIAL: Permite que o container encolha */
+  flex: 1;
+  min-width: 0;
 }
 
 .sidebar-chat-item .btn-text {
-  white-space: nowrap;      /* Não quebra linha */
-  overflow: hidden;         /* Esconde o que vazar */
-  text-overflow: ellipsis;  /* Adiciona os "..." */
-  
-  /* Opcional: Efeito sombreado (fade) sutil na direita */
-  /* Nota: O padrão web para "..." é apenas o text-overflow acima. 
-     Se quiser um "fade" real, usa-se mask-image, mas o ellipsis é mais comum. */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: block;
   width: 100%;
 }
 
-/* Botão de lixeira */
 .btn-delete-chat {
   background: none;
   border: none;
-  color: var(--muted); /* Usa cor discreta */
+  color: var(--muted);
   cursor: pointer;
   padding: 6px;
   border-radius: 4px;
   font-size: 0.9rem;
-  opacity: 0; /* Invisível por padrão */
+  opacity: 0;
   transition: all 0.2s ease;
 }
 
 .btn-delete-chat:hover {
-  color: #ff4d4d; /* Vermelho ao passar o mouse */
+  color: #ff4d4d;
   background: rgba(255, 77, 77, 0.1);
 }
 
-/* Mostra a lixeira só quando passa o mouse no item da lista */
 .sidebar-chat-item:hover .btn-delete-chat {
   opacity: 1;
 }
 
-/* --- MOBILE: Sempre mostrar a lixeira no celular (não tem hover) --- */
 @media (max-width: 900px) {
   .btn-delete-chat {
     opacity: 1;
   }
 }
 
-/* --- REGRAS DE COLAPSO PARA O HISTÓRICO --- */
-
 .sidebar.collapsed .sidebar-history {
-  padding: 0; /* Remove o padding lateral */
+  padding: 0;
 }
 
 .sidebar.collapsed .sidebar-chat-item {
   gap: 0;
-  /* Aplica o mesmo padding de centralização dos outros botões (linha 257) */
+
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 16px;
@@ -676,7 +545,6 @@ display: flex;
   display: none !important;
 }
 
-/* --- ESTILOS DO QUIZ (GAMIFICAÇÃO) --- */
 .quiz-container {
   background: #0f1a2e;
   border: 1px solid #233556;
@@ -715,7 +583,6 @@ display: flex;
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Estados de Resposta */
 .quiz-btn.correct {
   background: rgba(20, 195, 142, 0.2) !important;
   border-color: #14c38e !important;
@@ -732,7 +599,7 @@ display: flex;
   margin-top: 12px;
   font-size: 0.9rem;
   padding: 10px;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   border-left: 3px solid var(--accent);
 }

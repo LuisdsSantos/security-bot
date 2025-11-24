@@ -1,10 +1,4 @@
-/**
- * home.js - Versão Integrada com API Node.js
- */
 
-// --- CONSTANTES DE CONFIGURAÇÃO ---
-// Se você estiver rodando localmente, use localhost:3000.
-// Se subiu para o Render/Railways, coloque a URL de produção aqui.
 const API_BASE_URL = "http://localhost:3000"; 
 
 // --- ELEMENTOS DO DOM ---
@@ -86,18 +80,6 @@ function addMessage(who, text, timestamp = null, messageId = null) {
         const quizEl = renderQuiz(quizData);
         li.appendChild(quizEl);
       }
-
-      // 4. Feedback e Meta
-      /* (Opcional: Se não quiser botões de like no histórico antigo, comente as linhas abaixo) */
-      /*
-      const feedbackDiv = document.createElement('div');
-      feedbackDiv.className = "feedback";
-      feedbackDiv.innerHTML = `
-          <button class="btnLike">Útil</button>
-          <button class="btnDislike">Não útil</button>
-      `;
-      li.appendChild(feedbackDiv);
-      */
 
       const metaSpan = document.createElement('span');
       metaSpan.className = "meta";
@@ -382,21 +364,17 @@ async function deleteSession(sessionId, elementToRemove) {
   }
 }
 
-// Adiciona item na sidebar (com evento de clique para carregar)
 function addChatToSidebar(sessionId, title) {
-  // Mudamos de 'button' para 'div' para poder ter elementos clicáveis dentro
+
   const chatItem = document.createElement("div");
   chatItem.className = "btn flat sidebar-chat-item";
   chatItem.dataset.sessionId = sessionId;
-
-  // Conteúdo do texto (Icone + Titulo)
-  // Envolvemos num span para poder tratar o clique de carregar separado do deletar
   const contentWrapper = document.createElement("div");
   contentWrapper.className = "chat-item-content";
   contentWrapper.style.display = "flex";
   contentWrapper.style.alignItems = "center";
   contentWrapper.style.gap = "8px";
-  contentWrapper.style.flex = "1"; // Ocupa o espaço sobrando
+  contentWrapper.style.flex = "1"; 
   
   const textSpan = document.createElement("span");
   textSpan.className = "btn-text";
@@ -404,15 +382,13 @@ function addChatToSidebar(sessionId, title) {
 
   contentWrapper.appendChild(textSpan);
 
-  // Botão de Excluir (NOVO)
   const deleteBtn = document.createElement("button");
   deleteBtn.className = "btn-delete-chat";
   deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
   deleteBtn.title = "Excluir conversa";
 
-  // Evento de Excluir (Para a propagação para não abrir o chat ao clicar na lixeira)
   deleteBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // Impede que o clique ative o 'loadConversation'
+    e.stopPropagation();
     deleteSession(sessionId, chatItem);
   });
 
@@ -485,7 +461,6 @@ formChat.addEventListener("submit", async (event) => {
 
     const data = await response.json();
     
-    // ATENÇÃO: Aqui mudou de data.output (n8n) para data.response (Node API)
     const botText = data.response || "Sem resposta do servidor.";
     
     addBotReply(botText,data.messageId);

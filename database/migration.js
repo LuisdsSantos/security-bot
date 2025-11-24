@@ -3,7 +3,6 @@ const mysql = require('mysql2/promise');
 
 async function runMigration() {
     // 1. Conecta SEM especificar o 'database' (apenas host, user, password)
-    // Isso é necessário para poder criar o banco caso ele não exista
     const connection = await mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
@@ -45,7 +44,7 @@ async function runMigration() {
         await connection.execute(createLogsQuery);
         console.log("✅ Tabela 'chat_logs' criada com sucesso!");
 
-        // 6. [NOVO] Cria a tabela de USUÁRIOS
+        // 6. Cria a tabela de USUÁRIOS
         const createUsersQuery = `
             CREATE TABLE IF NOT EXISTS users (
                 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -60,8 +59,7 @@ async function runMigration() {
         await connection.execute(createUsersQuery);
         console.log("✅ Tabela 'users' criada com sucesso!");
 
-        // 7. [NOVO] Tabela de Tentativas de Quiz
-        // A chave UNIQUE garante que o banco bloqueie duplicações automaticamente
+        // 7. Tabela de Tentativas de Quiz
         const createQuizAttemptsQuery = `
             CREATE TABLE IF NOT EXISTS quiz_attempts (
                 id INT AUTO_INCREMENT PRIMARY KEY,
