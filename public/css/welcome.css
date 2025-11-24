@@ -1,0 +1,48 @@
+@import url('./styles.css');
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 75vh;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg);
+}
+
+.hero {
+  text-align: center;
+  padding: 64px 16px 24px;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.cta {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+}
+
+.note {
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

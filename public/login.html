@@ -1,0 +1,38 @@
+  <!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entrar - SecurityBot</title>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <header class="hero" role="banner">
+    <h1>
+      <a class="brand" href="welcome.html">SecurityBot</a>
+    </h1>
+  </header>
+
+  <main>
+    <form id="formLogin" novalidate>
+      <h2>Entrar</h2>
+      <label>E-mail
+        <input type="email" name="email" required />
+      </label>
+
+      <label>Senha
+        <input type="password" name="password" required />
+      </label>
+
+      <button class="btn primary" type="submit">Entrar</button>
+      <div class="row">
+        <a href="forgot.html">Esqueci minha senha</a>
+        <a href="signup.html">Criar conta</a>
+      </div>
+      <p id="msg" class="msg" role="alert" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

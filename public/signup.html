@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar conta - SecurityBot</title>
+  <link rel="stylesheet" href="css/signup.css" />
+</head>
+<body>
+  <header class="hero" role="banner">
+    <h1>
+      <a class="brand" href="welcome.html">SecurityBot</a>
+    </h1>
+  </header>
+
+  <main>
+    <form id="formSignup" novalidate>
+      <h2>Criar conta</h2>
+      <label>Nome
+        <input type="text" name="name" required aria-required="true" />
+      </label>
+
+      <label>E-mail corporativo
+        <input type="email" name="email" required aria-required="true" />
+      </label>
+
+      <label>Senha
+        <input type="password" name="password" required aria-required="true" aria-describedby="pwdHelp" />
+      </label>
+      <div id="pwdHelp" class="help">Mín. 8 caracteres, letras, números e símbolos.</div>
+      <div class="strength" id="pwdStrength" aria-live="polite"></div>
+
+      <button class="btn primary" type="submit">Criar conta</button>
+      <p class="alt">Já possui conta? <a href="login.html">Entrar</a></p>
+      <p id="msg" class="msg" role="alert" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/signup.js"></script>
+</body>
+</html>

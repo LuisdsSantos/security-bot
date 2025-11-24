@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Perfil - SecurityBot</title>
+    <link rel="stylesheet" href="css/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="home.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Voltar ao Chat
+      </a>
+      <span class="page-title">Meu Perfil</span>
+      <div class="spacer"></div>
+    </nav>
+
+    <main class="profile-container">
+      <section class="identity-card">
+        <div class="cover-photo"></div>
+        <div class="profile-avatar">
+          <i class="fa-solid fa-user-astronaut"></i>
+        </div>
+        
+        <div class="profile-details">
+          <h2 id="userName">Carregando...</h2>
+          <p id="userEmail" class="subtitle">...</p>
+          <span class="level-badge" id="userLevelBadge">Iniciante</span>
+        </div>
+
+        <div class="settings-list">
+          <button class="list-item" id="btnEditData"> <div class="item-icon"><i class="fa-solid fa-user-pen"></i></div>
+            <span class="item-text">Editar Dados</span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </button>
+          
+          <button class="list-item" id="btnChangePassword"> <div class="item-icon"><i class="fa-solid fa-lock"></i></div>
+            <span class="item-text">Alterar Senha</span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </button>
+          
+          <button class="list-item logout" id="btnLogout">
+            <div class="item-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+            <span class="item-text">Sair da Conta</span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </button>
+        </div>
+      </section>
+
+      </main>
+
+    <div id="modalEdit" class="modal-overlay hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Editar Dados</h3>
+          <button class="close-modal" id="closeEdit"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="formEditData">
+          <label>Nome Completo
+            <input type="text" id="editName" required />
+          </label>
+          <label>E-mail
+            <input type="email" id="editEmail" required /> 
+          </label>
+          <div class="modal-actions">
+            <button type="button" class="btn outline cancel-btn" id="cancelEdit">Cancelar</button>
+            <button type="submit" class="btn primary">Salvar Alterações</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="modalPassword" class="modal-overlay hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Alterar Senha</h3>
+          <button class="close-modal" id="closePassword"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="formChangePassword">
+          <label>Senha Atual
+            <input type="password" id="currentPassword" required />
+          </label>
+          <label>Nova Senha
+            <input type="password" id="newPassword" required />
+            <span class="help-text">Mínimo 8 caracteres</span>
+          </label>
+          <label>Confirmar Nova Senha
+            <input type="password" id="confirmPassword" required />
+          </label>
+          <div class="modal-actions">
+            <button type="button" class="btn outline cancel-btn" id="cancelPassword">Cancelar</button>
+            <button type="submit" class="btn primary">Atualizar Senha</button>
+          </div>
+        </form>
+      </div>
+    </div>
+        </div>
+      </section>
+
+      <section class="gamification-dashboard">
+        <h3>Seu Progresso</h3>
+        
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-label">Pontos XP</span>
+            <strong class="stat-value" id="points">0</strong>
+            <i class="fa-solid fa-bolt stat-icon accent"></i>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Nível Atual</span>
+            <strong class="stat-value" id="userLevel">1</strong>
+            <i class="fa-solid fa-layer-group stat-icon secondary"></i>
+          </div>
+        </div>
+
+        <div class="level-progress-container">
+          <div class="progress-info">
+            <span>Próximo nível</span>
+            <span id="progressPercent">0%</span>
+          </div>
+          <div class="progress-track">
+            <div id="bar" class="progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="badges-container">
+            <h4>Conquistas</h4>
+            <div id="badges" class="badges-grid">
+                <div class="badge locked"><i class="fa-solid fa-shield"></i></div>
+                <div class="badge locked"><i class="fa-solid fa-bug"></i></div>
+                <div class="badge locked"><i class="fa-solid fa-database"></i></div>
+                <div class="badge locked"><i class="fa-solid fa-key"></i></div>
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/profile.js"></script>
+  </body>
+</html>

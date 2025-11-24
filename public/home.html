@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SecurityBot</title>
+    <link rel="stylesheet" href="css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <div class="layout-home">
+      <header class="chat-header">
+        <button
+          class="btn toggle-sidebar"
+          id="btnToggleSidebar"
+          aria-label="Recolher sidebar"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="status" id="status"></div>
+      </header>
+
+      <div class="main-content-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebarChat">
+          <header class="sidebar-header"></header>
+          <div class="sidebar-action-main">
+            <button class="btn flat" id="btnNewChat">
+              <i class="fa-solid fa-pen-to-square"></i>
+              <span class="btn-text">New Chat</span>
+            </button>
+          </div>
+          <nav
+            class="sidebar-history"
+            id="sidebarHistory"
+            aria-label="Histórico de conversas"
+          ></nav>
+          <footer class="sidebar-footer">
+            <button class="btn flat" id="btnProfile">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span class="btn-text">Profile</span>
+            </button>
+            <button class="btn flat" id="btnLogoutSidebar">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              <span class="btn-text">Logout</span>
+            </button>
+          </footer>
+        </aside>
+
+        <!-- Chat principal -->
+        <div class="home-main">
+          <main class="home-container">
+            <!-- lista de mensagens -->
+            <ul id="messages" class="messages" aria-live="polite"></ul>
+            <!-- composer -->
+            <form id="formChat" class="composer" autocomplete="off">
+              <input
+                id="inputMsg"
+                name="message"
+                type="text"
+                placeholder="Digite sua pergunta de cibersegurança..."
+                aria-label="Mensagem"
+                required
+              />
+              <button
+                id="btnSend"
+                class="btn primary"
+                type="submit"
+                aria-label="Enviar"
+                disabled
+              >
+                <i class="fa-solid fa-arrow-up"></i>
+              </button>
+            </form>
+          </main>
+        </div>
+      </div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="modal" class="modal" aria-modal="true" role="dialog" hidden>
+      <div class="modal-content" role="document">
+        <h3 id="modalTitle">Parabéns!</h3>
+        <p id="modalBody">Você subiu de nível.</p>
+        <button class="btn primary" id="modalClose">Fechar</button>
+      </div>
+    </div>
+    <script src="js/home.js"></script>
+  </body>
+</html>

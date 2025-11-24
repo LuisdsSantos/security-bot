@@ -1,0 +1,32 @@
+# --- Dependências (Nunca suba isso, é muito pesado) ---
+node_modules/
+
+# --- Segurança e Segredos (CRÍTICO) ---
+# Ignora arquivos de variáveis de ambiente com senhas
+.env
+.env.local
+.env.*
+
+# --- Logs e Debug ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# --- Arquivos de Sistema Operacional ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- IDEs e Editores de Texto ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Outros ---
+# Se você tiver pastas de build no futuro
+dist/
+build/
+coverage/

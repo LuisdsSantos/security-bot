@@ -1,0 +1,55 @@
+@import url("./styles.css");
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 75vh;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg);
+}
+main {
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.hero {
+  text-align: center;
+  padding: 64px 16px 24px;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+form {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+label {
+  display: block;
+  margin: 12px 0;
+}
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #233556;
+  background: #0c1730;
+  color: var(--text);
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.msg {
+  margin-top: 12px;
+  color: var(--danger);
+}

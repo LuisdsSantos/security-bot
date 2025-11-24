@@ -1,0 +1,94 @@
+:root {
+  --bg: #0b1220;
+  --card: #111a2e;
+  --text: #e6f1ff;
+  --muted: #9fb3c8;
+  --accent: #2ee6a6;
+  --accent-2: #3aa0ff;
+  --danger: #ff6b6b;
+  --focus: #ffd166;
+  --radius: 12px;
+  --transition: 0.25s ease-in-out;
+  --card-light: #273453;
+}
+
+/* Reset e base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-2);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  border: none;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent), #14c38e);
+  color: #072615;
+}
+
+.btn.outline {
+  border: 1px solid var(--accent-2);
+  background: transparent;
+  color: var(--text);
+}
+
+.btn.flat {
+  background: none;
+  border: none;
+  color: var(--text);
+}
+
+input, textarea {
+  background: #0c1730;
+  border: 1px solid #233556;
+  border-radius: 8px;
+  padding: 10px;
+  color: var(--text);
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+/* Scroll personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #233556;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #335c91;
+}
+
+/* Utilitários */
+.text-muted { color: var(--muted); }
+.text-center { text-align: center; }

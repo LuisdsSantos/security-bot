@@ -1,0 +1,23 @@
+{
+  "name": "security-bot-api",
+  "version": "1.0.0",
+  "description": "O **SecurityBot** é um Chatbot inteligente focado em cibersegurança, desenvolvido com **Node.js**, **MySQL** e a **API do Google Gemini**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3"
+  },
+  "type": "commonjs"
+}
