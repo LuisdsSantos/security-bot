@@ -44,16 +44,20 @@ security-bot/
     ├── signup.html        # Tela de Cadastro
     ├── home.html          # Tela do Chat (Aplicação Principal)
     └── profile.html       # Dashboard do Usuário
+
 ```
 
 ## 📦 Passo 2: Instalação
+
 1. Abra o terminal na pasta raiz do projeto.
 
 2. Inicie o projeto (caso não tenha o `package.json`):
 
 ```Bash 
 npm init -y
+
 ```
+
 3. Instale as dependências necessárias:
 
 ```Bash
@@ -61,11 +65,14 @@ npm install express mysql2 dotenv cors @google/generative-ai bcrypt
 ```
 
 4. Garanta que o `package.json` tenha o script de start:
+
 ```Bash 
+
 "scripts": {
   "start": "node src/server.js",
   "dev": "node src/server.js"
  }
+
 ```
 (Opcional: Instale `nodemon` para desenvolvimento: `npm install -D nodemon`)
 
@@ -89,9 +96,11 @@ DB_PORT=3306
 
 # Chave da API do Google Gemini
 GOOGLE_API_KEY=Cole_Sua_Chave_Aqui_Sem_Espacos
+
 ```
 
 ## 🗄️ Passo 4: Configuração do Banco de Dados
+
 O projeto inclui um script de migração que cria o banco de dados e as tabelas necessárias (`chat_logs` e `chat_sessions`) automaticamente.
 
 Certifique-se de que seu servidor MySQL está rodando.
@@ -100,7 +109,9 @@ Execute o script de migração:
 
 ```Bash
 node database/migration.js
+
 ```
+
 **Resultado esperado:** Você deve ver mensagens como "Banco de dados verificado" e "Tabelas criadas com sucesso".
 
 Nota: Se preferir criar manualmente via SQL (Workbench), execute:
@@ -148,13 +159,15 @@ CREATE TABLE IF NOT EXISTS quiz_attempts (
 );
 ```
 
-## ▶️ Passo 5: Executando a Aplicação 
+## ▶️ Passo 5: Executando a Aplicação
 
 Modo Local No terminal, execute:
 
 ```Bash
 node src/server.js
+
 ```
+
 Se tudo der certo, você verá: `Servidor MySQL rodando na porta 3000`.
 
 Acesse no seu navegador: 👉 **http://localhost:3000**
@@ -180,6 +193,7 @@ Comando de Build: `npm install`
 Comando de Start: `node src/server.js`
 
 ## 🛠️ Solução de Problemas Comuns
+
 Erro 500 ao enviar mensagem:
 
 Verifique se a `GOOGLE_API_KEY` no `.env` está correta e sem espaços extras.

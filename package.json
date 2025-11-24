@@ -1,7 +1,7 @@
 {
-  "name": "security-bot-api",
+  "name": "security-bot",
   "version": "1.0.0",
-  "description": "O **SecurityBot** é um Chatbot inteligente focado em cibersegurança, desenvolvido com **Node.js**, **MySQL** e a **API do Google Gemini**.",
+  "description": "O SecurityBot é um Chatbot inteligente focado em cibersegurança, desenvolvido com Node.js, MySQL e a API do Google Gemini.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
