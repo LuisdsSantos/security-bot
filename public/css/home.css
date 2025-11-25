@@ -112,8 +112,8 @@ li.msg > div:first-child {
 
 .home-container:has(.messages:empty) .composer {
   position: absolute;
-  top: 50%;
-  bottom: auto;
+  top: auto;
+  bottom: 20px;
   transform: translate(-50%, -50%);
 }
 /* COMPORTAMENTO: COM MENSAGENS (Mantém embaixo) */
