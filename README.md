@@ -49,34 +49,38 @@ security-bot/
 
 ## 📦 Passo 2: Instalação
 
-1. Abra o terminal na pasta raiz do projeto.
+1.Abra o terminal na pasta raiz do projeto.
 
-2. Inicie o projeto (caso não tenha o `package.json`):
+2.Inicie o projeto (caso não tenha o `package.json`):
 
-```Bash 
+```Bash
 npm init -y
 
 ```
 
-3. Instale as dependências necessárias:
+3.Instale as dependências necessárias:
 
 ```Bash
 npm install express mysql2 dotenv cors @google/generative-ai bcrypt
+
 ```
 
-4. Garanta que o `package.json` tenha o script de start:
+4.Garanta que o `package.json` tenha o script de start:
 
-```Bash 
+```Bash
 
 "scripts": {
   "start": "node src/server.js",
-  "dev": "node src/server.js"
+  "dev": "node src/server.js",
+  "migration": "node database/migration.js"
  }
 
 ```
+
 (Opcional: Instale `nodemon` para desenvolvimento: `npm install -D nodemon`)
 
 ## ⚙️ Passo 3: Configuração de Ambiente (.env)
+
 Crie um arquivo chamado `.env` na raiz do projeto e preencha com suas credenciais.
 
 Atenção: Se estiver usando MySQL local (Workbench), o `DB_HOST` geralmente é localhost e a porta `3306`.
@@ -170,7 +174,7 @@ node src/server.js
 
 Se tudo der certo, você verá: `Servidor MySQL rodando na porta 3000`.
 
-Acesse no seu navegador: 👉 **http://localhost:3000**
+Acesse no seu navegador: 👉 **<http://localhost:3000>**
 
 ## ☁️ Passo 6: Deploy (Opcional)
 
