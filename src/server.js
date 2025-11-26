@@ -68,7 +68,7 @@ async function generateChatTitle(firstMessage) {
 
 // --- ROTAS DA API ---
 
-// Rota 1: Enviar Mensagem (ATUALIZADA)
+// Rota 1: Enviar Mensagem 
 app.post('/message', async (req, res) => {
     const { sessionId, message } = req.body;
 
@@ -135,7 +135,7 @@ app.post('/message', async (req, res) => {
     }
 });
 
-// Rota 2: Buscar Mensagens (Mantida igual)
+// Rota 2: Buscar Mensagens
 app.get('/get-messages/:sessionId', async (req, res) => {
     const { sessionId } = req.params;
     try {
@@ -149,10 +149,10 @@ app.get('/get-messages/:sessionId', async (req, res) => {
     }
 });
 
-// Rota 3: Buscar Histórico (ATUALIZADA para ler da tabela de sessões)
+// Rota 3: Buscar Histórico 
 app.get('/get-history-list', async (req, res) => {
     try {
-        // Agora pegamos o título bonito gerado pela IA na tabela chat_sessions
+       
         const [rows] = await pool.execute(`
             SELECT session_id, title, created_at 
             FROM chat_sessions 
@@ -165,7 +165,7 @@ app.get('/get-history-list', async (req, res) => {
     }
 });
 
-// Rota 4: Deletar Sessão (ATUALIZADA para limpar ambas as tabelas)
+// Rota 4: Deletar Sessão
 app.delete('/history/:sessionId', async (req, res) => {
     const { sessionId } = req.params;
     try {
@@ -228,7 +228,7 @@ app.post('/auth/login', async (req, res) => {
             return res.status(401).json({ error: 'Credenciais inválidas.' });
         }
 
-        // 3. Retorna sucesso (Simples: devolve o ID e Nome para salvar no front)
+        // 3. Retorna sucesso
         res.json({ 
             success: true, 
             user: { id: user.id, name: user.name, email: user.email } 
@@ -262,9 +262,6 @@ app.put('/user/:id', async (req, res) => {
     const { name, email } = req.body;
 
     try {
-        // Opcional: Verificar se email já existe em outra conta
-        // ...
-
         await pool.execute(
             'UPDATE users SET name = ?, email = ? WHERE id = ?',
             [name, email, userId]
